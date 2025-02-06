@@ -39,9 +39,7 @@ jobs:
         with:
           push: true
           tags: |
-            # Docker Hub: "latest" + "tag-name"
             beyenilmez/pz-info-api:latest
             beyenilmez/pz-info-api:${{ github.ref_name }}
-            # GHCR: "latest" + "tag-name"
             ghcr.io/beyenilmez/pz-info-api:latest
             ghcr.io/beyenilmez/pz-info-api:${{ github.ref_name }}
