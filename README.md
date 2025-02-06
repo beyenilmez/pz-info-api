@@ -7,6 +7,7 @@ An HTTP API that fetches and displays information from a Project Zomboid server 
 - [API Endpoint](#api-endpoint)
 - [Environment Variables](#environment-variables)
 - [Docker Usage](#docker-usage)
+- [Examples](#examples)
 - [Caching Explained](#caching-explained)
 - [Local Development](#local-development)
 - [License](#license)
@@ -74,6 +75,10 @@ docker run -d --name pz-info-api \
   --restart unless-stopped \
   ghcr.io/beyenilmez/pz-info-api:latest
 ```
+
+## Examples
+
+- [Docker compose with a dedicated server image](https://github.com/beyenilmez/pz-info-api/tree/main/examples/docker-compose-with-dedicated-server)
 
 ## Caching Explained
 
