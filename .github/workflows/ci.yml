@@ -5,6 +5,11 @@ on:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
+# Grant the workflow permission to write packages (needed for GHCR)
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   docker:
     runs-on: ubuntu-latest
