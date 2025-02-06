@@ -43,9 +43,9 @@ Create a `.env` file (or set these in your environment directly) with the follow
 
 ## Docker Usage
 
-* The image is available on Docker Hub: [beyenilmez/pz-info-api](https://hub.docker.com/r/beyenilmez/pz-info-api)
+- The image is available on Docker Hub: [beyenilmez/pz-info-api](https://hub.docker.com/r/beyenilmez/pz-info-api)
 
-* It is also available on GHCR: [ghcr.io/beyenilmez/pz-info-api](https://ghcr.io/beyenilmez/pz-info-api)
+- It is also available on GHCR: [ghcr.io/beyenilmez/pz-info-api](https://ghcr.io/beyenilmez/pz-info-api)
 
 Using docker compose:
 
@@ -76,9 +76,10 @@ docker run -d --name pz-info-api \
 ```
 
 ## Caching Explained
-* The response is cached for a duration configured by `CACHE_TTL_SECONDS`.
-* During that time, repeated requests to / serve the same JSON without hitting RCON again.
-* Once the cache expires, the API makes new RCON calls to update the response.
+
+- The response is cached for a duration configured by `CACHE_TTL_SECONDS`.
+- During that time, repeated requests to / serve the same JSON without hitting RCON again.
+- Once the cache expires, the API makes new RCON calls to update the response.
 
 ## Local Development
 

@@ -1,0 +1,52 @@
+services:
+  zomboid-dedicated-server:
+    image: "ghcr.io/renegade-master/zomboid-dedicated-server:latest"
+    container_name: zomboid-dedicated-server
+    restart: "no"
+    environment:
+      - "ADMIN_PASSWORD=your_password"
+      - "ADMIN_USERNAME=superuser"
+      - "AUTOSAVE_INTERVAL=15"
+      - "BIND_IP=0.0.0.0"
+      - "DEFAULT_PORT=16261"
+      - "GAME_VERSION=public"
+      - "GC_CONFIG=ZGC"
+      - "MAP_NAMES=Muldraugh, KY"
+      - "MAX_PLAYERS=10"
+      - "MAX_RAM=4096m"
+      - "MOD_NAMES="
+      - "MOD_WORKSHOP_IDS="
+      - "PAUSE_ON_EMPTY=true"
+      - "PUBLIC_SERVER=true"
+      - "RCON_PASSWORD=your_password"
+      - "RCON_PORT=27015"
+      - "SERVER_NAME=server_name"
+      - "SERVER_PASSWORD=your_server_password"
+      - "STEAM_VAC=true"
+      - "UDP_PORT=16262"
+      - "USE_STEAM=true"
+      - "TZ=UTC+3"
+    ports:
+      - target: 16261
+        published: 16261
+        protocol: udp
+      - target: 16262
+        published: 16262
+        protocol: udp
+      - target: 27015
+        published: 27015
+        protocol: tcp
+    volumes:
+      - ./ZomboidDedicatedServer:/home/steam/ZomboidDedicatedServer
+      - ./ZomboidConfig:/home/steam/Zomboid/
+
+  pz-info-api:
+    image: ghcr.io/beyenilmez/pz-info-api:latest
+    container_name: pz-info-api
+    environment:
+      - RCON_SOCKET=zomboid-dedicated-server:27015
+      - RCON_PASSWORD=your_password
+      - CACHE_TTL_SECONDS=10
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
