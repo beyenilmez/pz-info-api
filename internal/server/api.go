@@ -9,6 +9,8 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 // ApiResponse is what we return via our HTTP endpoint.
@@ -32,6 +34,8 @@ var (
 // loadCacheTTLFromEnv reads the environment variable `CACHE_TTL_SECONDS`,
 // converts it to an integer, and returns a `time.Duration`. Defaults to 5 seconds if unset/invalid.
 func loadCacheTTLFromEnv() time.Duration {
+	godotenv.Load()
+
 	const envVar = "CACHE_TTL_SECONDS"
 	defaultSeconds := 5
 
